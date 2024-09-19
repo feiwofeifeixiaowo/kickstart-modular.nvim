@@ -31,6 +31,13 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Resize with arrows
+-- delta: 2 lines
+-- vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', { desc = 'Resize current window Up 2p' })
+-- vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', { desc = 'Resize current window Down 2p' })
+-- vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { desc = 'Resize current window Left 2p' })
+-- vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { desc = 'Resize current window Right 2p' })
+--
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -44,5 +51,23 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- nvim-tree keymaps
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>er', ':NvimTreeRefresh<CR>', { noremap = true, silent = true, desc = 'Refresh NvimTree' })
+
+-- Bufferline 键位映射
+vim.api.nvim_set_keymap('n', '<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+
+-- 关闭当前缓冲区
+-- vim.api.nvim_set_keymap('n', '<leader>x', '<Cmd>BufferLinePickClose<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>x', '<Cmd>bdelete<CR>', { noremap = true, silent = true })
 
 -- vim: ts=2 sts=2 sw=2 et
