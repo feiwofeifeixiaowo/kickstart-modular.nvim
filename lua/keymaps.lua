@@ -54,7 +54,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- nvim-tree keymaps
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>er', ':NvimTreeRefresh<CR>', { noremap = true, silent = true, desc = 'Refresh NvimTree' })
 
 -- Bufferline 键位映射
 vim.api.nvim_set_keymap('n', '<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>', { noremap = true, silent = true })
